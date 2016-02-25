@@ -1,6 +1,7 @@
 class WordGuess
-  def initialize(new_game)
-    @word = new_game["green", "purple", "yellow", "pink"].sample
+  def initialize(word)
+    @word = ["green", "purple", "yellow", "pink"].sample
+    @number_of_guesses = 5
   end
 
   def correct
@@ -24,14 +25,17 @@ start to dig up your yard! HAHAHAHAHA!
 Are you ready? Take a guess!
 
 YES
-
-new_game = WordGuess.new
+puts @word
 
 puts welcome
-guess = gets.chomp
+puts @word
+#guess = gets.chomp
 
-letter_array = @word.split(//)
-puts letter_array
+#new_game = WordGuess.new("word")
+
+
+#letter_array = @word.split(//)
+#puts letter_array
 
 
 
