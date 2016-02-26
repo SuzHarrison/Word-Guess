@@ -1,8 +1,8 @@
 class WordGuess
-  attr_accessor :solve_word
+  attr_accessor :solve_word, :number_of_lives
     def initialize(hash)
       @solve_word = hash[:solve_word]
-      @number_of_lives = 5
+      @number_of_lives = hash[:solve_word]
     end
 
   def add_letter
@@ -12,8 +12,9 @@ class WordGuess
   end
 
   def life_loss
-    @number_of_lives - 1
-    if @number_of_lives == 0
+    if @number_of_lives > 0
+      @number_of_lives -= 1
+    elsif @number_of_lives = 0
       puts "Too many bunnies! They ate your garden!"
       exit
     end
@@ -48,7 +49,7 @@ Are you ready? Take a guess!
 
 YES
 
-new_game = WordGuess.new(solve_word: "carrots")
+new_game = WordGuess.new(solve_word: "carrots", number_of_lives: 5)
 letter_array = new_game.solve_word.split(//)
 
 puts welcome
@@ -58,7 +59,8 @@ guess = gets.chomp
 
 #the puts statements in this loop are not currently correct. We are going to have
 # to come up with a solution for adding letters when letters have already been guessed.
-until guess
+until new_game.number_of_lives == 0
+
   if guess == letter_array[0]
   new_game.correct
   puts "#{letter_array[0]} _ _ _ _ _ _"
@@ -81,24 +83,24 @@ until guess
   new_game.correct
   puts "_ _ _ _ _ _ #{letter_array[6]}"
   end
-end
-#This section has been untested. Previously used || and that didn't work.
-if guess != letter_array[0]
-new_game.incorrect
-elsif guess != letter_array[1]
-  new_game.incorrect
-elsif guess != letter_array[2]
-  new_game.incorrect
-elsif guess != letter_array[3]
-  new_game.incorrect
-elsif guess != letter_array[4]
-  new_game.incorrect
-elsif guess != letter_array[5]
-  new_game.incorrect
-elsif guess != letter_array[6]
-  new_game.incorrect
-end
 
+  #This section has been untested. Previously used || and that didn't work.
+  if guess != letter_array[0]
+  new_game.incorrect
+  elsif guess != letter_array[1]
+    new_game.incorrect
+  elsif guess != letter_array[2]
+    new_game.incorrect
+  elsif guess != letter_array[3]
+    new_game.incorrect
+  elsif guess != letter_array[4]
+    new_game.incorrect
+  elsif guess != letter_array[5]
+    new_game.incorrect
+  elsif guess != letter_array[6]
+    new_game.incorrect
+  end
+end
 
 #      " "#x= a correct letter of the answer
 #      puts "Good job!"
