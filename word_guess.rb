@@ -1,9 +1,9 @@
 class WordGuess
   attr_accessor :solve_word
-  def initialize(hash)
-    @solve_word = hash[:solve_word]
-    @number_of_lives = 5
-  end
+    def initialize(hash)
+      @solve_word = hash[:solve_word]
+      @number_of_lives = 5
+    end
 
   def add_letter
     if guess == true
@@ -52,19 +52,41 @@ Are you ready? Take a guess!
 YES
 
 new_game = WordGuess.new(solve_word: "carrots")
-puts "#{new_game.solve_word}"
+letter_array = new_game.solve_word.split(//)
+
+puts welcome
+guess = gets.chomp
 
 
-#puts welcome
-#puts @word
-#guess = gets.chomp
-
-
-#letter_array = @word.split(//)
-#puts letter_array
-
-
-
+if guess == letter_array[0]
+#correct
+#add_letter
+puts "hooray"
+elsif guess == letter_array[1]
+#correct
+#add_letter
+puts "hooray"
+elsif guess == letter_array[2]
+#correct
+#add_letter
+puts "hooray"
+elsif guess == letter_array[3]
+#correct
+#add_letter
+puts "hooray"
+elsif guess == letter_array[4]
+#correct
+#add_letter
+puts "hooray"
+elsif guess == letter_array[5]
+#correct
+#add_letter
+puts "hooray"
+elsif guess == letter_array[6]
+#correct
+#add_letter
+puts "True!"
+end
 
 
 #      " "#x= a correct letter of the answer
@@ -74,5 +96,3 @@ puts "#{new_game.solve_word}"
 #    else
 #      puts "Bad news! Bunnies are multiplying! Please guess again."
 #      guess = gets.chomp
-#    end
-#end
