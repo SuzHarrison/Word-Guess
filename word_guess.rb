@@ -5,20 +5,14 @@ class WordGuess
       @number_of_lives = hash[:solve_word]
     end
 
-  def add_letter
-    if guess == true
-
-    end
-  end
-
-  def life_loss
-    if @number_of_lives > 0
-      @number_of_lives -= 1
-    elsif @number_of_lives = 0
-      puts "Too many bunnies! They ate your garden!"
-      exit
-    end
-  end
+  #def life_loss
+  #  if @number_of_lives
+  #    @number_of_lives -= 1
+  #  elsif @number_of_lives = 0
+  #    puts "Too many bunnies! They ate your garden!"
+  #    exit
+  #  end
+  #end
 
   def correct
       if puts "Yes! You got one! No bunnies in your garden!"
@@ -31,7 +25,6 @@ class WordGuess
   end
 
   def incorrect
-      life_loss
       puts "Oh no! Another bunny is coming to your yard!"
       puts "Guess another letter and save your garden!"
       guess = gets.chomp
@@ -51,6 +44,7 @@ YES
 
 new_game = WordGuess.new(solve_word: "carrots", number_of_lives: 5)
 letter_array = new_game.solve_word.split(//)
+count = new_game.number_of_lives
 
 puts welcome
 guess = gets.chomp
@@ -86,18 +80,25 @@ until new_game.number_of_lives == 0
 
   #This section has been untested. Previously used || and that didn't work.
   if guess != letter_array[0]
-  new_game.incorrect
+    count = count -1
+    new_game.incorrect
   elsif guess != letter_array[1]
+    count = count -1
     new_game.incorrect
   elsif guess != letter_array[2]
+    count = count -1
     new_game.incorrect
   elsif guess != letter_array[3]
+    count = count -1
     new_game.incorrect
   elsif guess != letter_array[4]
+    count = count -1
     new_game.incorrect
   elsif guess != letter_array[5]
+    count = count -1
     new_game.incorrect
   elsif guess != letter_array[6]
+    count = count -1
     new_game.incorrect
   end
 end
