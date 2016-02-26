@@ -1,11 +1,15 @@
 class WordGuess
-  def initialize(word)
-    @word = word
+  attr_accessor :solve_word
+  def initialize(hash)
+    @solve_word = hash[:solve_word]
     @number_of_lives = 5
-    puts "Let's play #{@word}!"
   end
 
-  def
+  def add_letter
+    if guess == true
+      #add one letter of the answer
+    end
+  end
 
   def life_loss
     if guess == incorrect
@@ -18,7 +22,8 @@ class WordGuess
       if puts "Yes! You got one! No bunnies in your garden!"
         ## add one letter of the answer
       else
-        puts "You win!" #answer!!
+        puts "#{new_game.solve_word}!"
+        puts "You win!"
       end
     end
   end
@@ -46,8 +51,8 @@ Are you ready? Take a guess!
 
 YES
 
-new_game = WordGuess.new("carrot")
-puts new_game.to_s
+new_game = WordGuess.new(solve_word: "carrots")
+puts "#{new_game.solve_word}"
 
 
 #puts welcome
