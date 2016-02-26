@@ -20,7 +20,6 @@ class WordGuess
   end
 
   def correct
-    if guess == true
       if puts "Yes! You got one! No bunnies in your garden!"
          puts "Guess another letter and save your garden!"
          guess = gets.chomp
@@ -28,7 +27,6 @@ class WordGuess
         puts "#{new_game.solve_word}!"
         puts "You win!"
       end
-    end
   end
 
   def incorrect
@@ -60,32 +58,44 @@ guess = gets.chomp
 
 #the puts statements in this loop are not currently correct. We are going to have
 # to come up with a solution for adding letters when letters have already been guessed.
-
-if guess == letter_array[0]
-#correct
-puts "#{letter_array[0]} _ _ _ _ _ _"
-elsif guess == letter_array[1]
-#correct
-puts "_ #{letter_array[1]} _ _ _ _ _"
-elsif guess == letter_array[2]
-#correct
-puts "_ _ #{letter_array[2]} _ _ _ _"
-elsif guess == letter_array[3]
-#correct
-puts "_ _ _ #{letter_array[3]} _ _ _"
-elsif guess == letter_array[4]
-#correct
-puts "_ _ _ _ #{letter_array[4]} _ _"
-elsif guess == letter_array[5]
-#correct
-puts "_ _ _ _ _ #{letter_array[5]} _"
-elsif guess == letter_array[6]
-#correct
-puts "_ _ _ _ _ _ #{letter_array[6]}"
+until guess
+  if guess == letter_array[0]
+  new_game.correct
+  puts "#{letter_array[0]} _ _ _ _ _ _"
+  elsif guess == letter_array[1]
+  new_game.correct
+  puts "_ #{letter_array[1]} _ _ _ _ _"
+  elsif guess == letter_array[2]
+  new_game.correct
+  puts "_ _ #{letter_array[2]} _ _ _ _"
+  elsif guess == letter_array[3]
+  new_game.correct
+  puts "_ _ _ #{letter_array[3]} _ _ _"
+  elsif guess == letter_array[4]
+  new_game.correct
+  puts "_ _ _ _ #{letter_array[4]} _ _"
+  elsif guess == letter_array[5]
+  new_game.correct
+  puts "_ _ _ _ _ #{letter_array[5]} _"
+  elsif guess == letter_array[6]
+  new_game.correct
+  puts "_ _ _ _ _ _ #{letter_array[6]}"
+  end
 end
-
-#This section has been untested. Previously used || and that didn't work. 
-while guess != letter_array[0] &&  letter_array[1] &&  letter_array[2] &&  letter_array[3] && letter_array[4] &&  letter_array[5] && letter_array[6]
+#This section has been untested. Previously used || and that didn't work.
+if guess != letter_array[0]
+new_game.incorrect
+elsif guess != letter_array[1]
+  new_game.incorrect
+elsif guess != letter_array[2]
+  new_game.incorrect
+elsif guess != letter_array[3]
+  new_game.incorrect
+elsif guess != letter_array[4]
+  new_game.incorrect
+elsif guess != letter_array[5]
+  new_game.incorrect
+elsif guess != letter_array[6]
   new_game.incorrect
 end
 
