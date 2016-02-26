@@ -12,9 +12,7 @@ class WordGuess
   end
 
   def life_loss
-    if guess == incorrect
-      number_of_lives - 1
-    end
+      @number_of_lives - 1
   end
 
   def correct
@@ -30,7 +28,6 @@ class WordGuess
   end
 
   def incorrect
-    if guess == false
       life_loss
       puts "Oh no! Another bunny is coming to your yard!"
       puts "Guess another letter and save your garden!"
@@ -39,7 +36,6 @@ class WordGuess
         puts "Too many bunnies! They ate your garden!"
         exit
       end
-    end
   end
 end
 
@@ -64,29 +60,31 @@ guess = gets.chomp
 
 #the puts statements in this loop are not currently correct. We are going to have
 # to come up with a solution for adding letters when letters have already been guessed.
-if guess == letter_array[0]
-#correct
-puts "#{letter_array[0]} _ _ _ _ _ _"
-elsif guess == letter_array[1]
-#correct
-puts "_ #{letter_array[1]} _ _ _ _ _"
-elsif guess == letter_array[2]
-#correct
-puts "_ _ #{letter_array[2]} _ _ _ _"
-elsif guess == letter_array[3]
-#correct
-puts "_ _ _ #{letter_array[3]} _ _ _"
-elsif guess == letter_array[4]
-#correct
-puts "_ _ _ _ #{letter_array[4]} _ _"
-elsif guess == letter_array[5]
-#correct
-puts "_ _ _ _ _ #{letter_array[5]} _"
-elsif guess == letter_array[6]
-#correct
-puts "_ _ _ _ _ _ #{letter_array[6]}"
+while guess != letter_array[0] || letter_array[1] || letter_array[2] || letter_array[3] ||letter_array[4] || letter_array[5] ||letter_array[6]
+  new_game.incorrect
+  if guess == letter_array[0]
+  #correct
+  puts "#{letter_array[0]} _ _ _ _ _ _"
+  elsif guess == letter_array[1]
+  #correct
+  puts "_ #{letter_array[1]} _ _ _ _ _"
+  elsif guess == letter_array[2]
+  #correct
+  puts "_ _ #{letter_array[2]} _ _ _ _"
+  elsif guess == letter_array[3]
+  #correct
+  puts "_ _ _ #{letter_array[3]} _ _ _"
+  elsif guess == letter_array[4]
+  #correct
+  puts "_ _ _ _ #{letter_array[4]} _ _"
+  elsif guess == letter_array[5]
+  #correct
+  puts "_ _ _ _ _ #{letter_array[5]} _"
+  elsif guess == letter_array[6]
+  #correct
+  puts "_ _ _ _ _ _ #{letter_array[6]}"
+  end
 end
-
 
 
 #      " "#x= a correct letter of the answer
