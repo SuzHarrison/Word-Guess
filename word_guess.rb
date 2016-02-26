@@ -7,7 +7,7 @@ class WordGuess
 
   def add_letter
     if guess == true
-      #add one letter of the answer
+
     end
   end
 
@@ -20,7 +20,8 @@ class WordGuess
   def correct
     if guess == true
       if puts "Yes! You got one! No bunnies in your garden!"
-        ## add one letter of the answer
+         puts "Guess another letter and save your garden!"
+         guess = gets.chomp
       else
         puts "#{new_game.solve_word}!"
         puts "You win!"
@@ -30,8 +31,10 @@ class WordGuess
 
   def incorrect
     if guess == false
-      puts "Oh no! Another bunny is coming to your yard!"
       life_loss
+      puts "Oh no! Another bunny is coming to your yard!"
+      puts "Guess another letter and save your garden!"
+      guess = gets.chomp
       if life_loss == 0
         puts "Too many bunnies! They ate your garden!"
         exit
@@ -58,35 +61,32 @@ puts welcome
 guess = gets.chomp
 
 
+
+#the puts statements in this loop are not currently correct. We are going to have
+# to come up with a solution for adding letters when letters have already been guessed.
 if guess == letter_array[0]
 #correct
-#add_letter
-puts "hooray"
+puts "#{letter_array[0]} _ _ _ _ _ _"
 elsif guess == letter_array[1]
 #correct
-#add_letter
-puts "hooray"
+puts "_ #{letter_array[1]} _ _ _ _ _"
 elsif guess == letter_array[2]
 #correct
-#add_letter
-puts "hooray"
+puts "_ _ #{letter_array[2]} _ _ _ _"
 elsif guess == letter_array[3]
 #correct
-#add_letter
-puts "hooray"
+puts "_ _ _ #{letter_array[3]} _ _ _"
 elsif guess == letter_array[4]
 #correct
-#add_letter
-puts "hooray"
+puts "_ _ _ _ #{letter_array[4]} _ _"
 elsif guess == letter_array[5]
 #correct
-#add_letter
-puts "hooray"
+puts "_ _ _ _ _ #{letter_array[5]} _"
 elsif guess == letter_array[6]
 #correct
-#add_letter
-puts "True!"
+puts "_ _ _ _ _ _ #{letter_array[6]}"
 end
+
 
 
 #      " "#x= a correct letter of the answer
