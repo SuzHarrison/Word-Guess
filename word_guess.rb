@@ -1,15 +1,35 @@
 class WordGuess
   def initialize(word)
-    @word = ["green", "purple", "yellow", "pink"].sample
-    @number_of_guesses = 5
+    @word = word
+    @number_of_lives = 5
+    puts "Let's play #{@word}!"
+  end
+
+  def
+
+  def life_loss
+    if guess == incorrect
+      number_of_lives - 1
+    end
   end
 
   def correct
     if guess == true
-      if puts ## add one letter of the answer
-
+      if puts "Yes! You got one! No bunnies in your garden!"
+        ## add one letter of the answer
       else
         puts "You win!" #answer!!
+      end
+    end
+  end
+
+  def incorrect
+    if guess == false
+      puts "Oh no! Another bunny is coming to your yard!"
+      life_loss
+      if life_loss == 0
+        puts "Too many bunnies! They ate your garden!"
+        exit
       end
     end
   end
@@ -25,13 +45,14 @@ start to dig up your yard! HAHAHAHAHA!
 Are you ready? Take a guess!
 
 YES
-puts @word
 
-puts welcome
-puts @word
+new_game = WordGuess.new("carrot")
+puts new_game.to_s
+
+
+#puts welcome
+#puts @word
 #guess = gets.chomp
-
-#new_game = WordGuess.new("word")
 
 
 #letter_array = @word.split(//)
