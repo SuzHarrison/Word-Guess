@@ -2,7 +2,7 @@ class WordGuess
   attr_accessor :solve_word, :number_of_lives
     def initialize(hash)
       @solve_word = hash[:solve_word]
-      @number_of_lives = hash[:solve_word]
+      @number_of_lives = hash[:number_of_lives]
     end
 
   #def life_loss
@@ -15,19 +15,15 @@ class WordGuess
   #end
 
   def correct
-      if puts "Yes! You got one! No bunnies in your garden!"
-         puts "Guess another letter and save your garden!"
-         guess = gets.chomp
-      else
-        puts "#{new_game.solve_word}!"
-        puts "You win!"
-      end
+    puts "Yes! You got one! No bunnies in your garden!"
+    puts "Guess another letter and save your garden!"
+    guess = gets.chomp
   end
 
   def incorrect
-      puts "Oh no! Another bunny is coming to your yard!"
-      puts "Guess another letter and save your garden!"
-      guess = gets.chomp
+    puts "Oh no! Another bunny is coming to your yard!"
+    puts "Guess another letter and save your garden!"
+    guess = gets.chomp
   end
 end
 
@@ -49,36 +45,38 @@ count = new_game.number_of_lives
 puts welcome
 guess = gets.chomp
 
-
+# MUST MOVE LIFE LOSS END EXIT TO UNTIL LOOP.
+# COUNT IS FINALLY WORKING! YEAAAAAAAAAAAH!
 
 #the puts statements in this loop are not currently correct. We are going to have
 # to come up with a solution for adding letters when letters have already been guessed.
-until new_game.number_of_lives == 0
-
+until count == 0
   if guess == letter_array[0]
-  new_game.correct
   puts "#{letter_array[0]} _ _ _ _ _ _"
+  new_game.correct
   elsif guess == letter_array[1]
-  new_game.correct
   puts "_ #{letter_array[1]} _ _ _ _ _"
+  new_game.correct
   elsif guess == letter_array[2]
-  new_game.correct
   puts "_ _ #{letter_array[2]} _ _ _ _"
+  new_game.correct
   elsif guess == letter_array[3]
-  new_game.correct
   puts "_ _ _ #{letter_array[3]} _ _ _"
+  new_game.correct
   elsif guess == letter_array[4]
-  new_game.correct
   puts "_ _ _ _ #{letter_array[4]} _ _"
+  new_game.correct
   elsif guess == letter_array[5]
-  new_game.correct
   puts "_ _ _ _ _ #{letter_array[5]} _"
-  elsif guess == letter_array[6]
   new_game.correct
+  elsif guess == letter_array[6]
   puts "_ _ _ _ _ _ #{letter_array[6]}"
+  new_game.correct
+elsif # we need to move the negative result up to here in one long elsif
   end
 
   #This section has been untested. Previously used || and that didn't work.
+until count == 0
   if guess != letter_array[0]
     count = count -1
     new_game.incorrect
@@ -100,6 +98,9 @@ until new_game.number_of_lives == 0
   elsif guess != letter_array[6]
     count = count -1
     new_game.incorrect
+  elsif count == 0
+    puts "Too many bunnies! They ate your garden!"
+    exit
   end
 end
 
