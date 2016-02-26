@@ -72,32 +72,9 @@ until count == 0
   elsif guess == letter_array[6]
   puts "_ _ _ _ _ _ #{letter_array[6]}"
   new_game.correct
-elsif # we need to move the negative result up to here in one long elsif
-  end
-
-  #This section has been untested. Previously used || and that didn't work.
-until count == 0
-  if guess != letter_array[0]
-    count = count -1
-    new_game.incorrect
-  elsif guess != letter_array[1]
-    count = count -1
-    new_game.incorrect
-  elsif guess != letter_array[2]
-    count = count -1
-    new_game.incorrect
-  elsif guess != letter_array[3]
-    count = count -1
-    new_game.incorrect
-  elsif guess != letter_array[4]
-    count = count -1
-    new_game.incorrect
-  elsif guess != letter_array[5]
-    count = count -1
-    new_game.incorrect
-  elsif guess != letter_array[6]
-    count = count -1
-    new_game.incorrect
+  elsif guess != letter_array[0] && guess != letter_array[1] && guess != letter_array[2] && guess != letter_array[3] && guess != letter_array[4] && guess != letter_array[5] && guess != letter_array[6]
+  count = count -1
+  new_game.incorrect
   elsif count == 0
     puts "Too many bunnies! They ate your garden!"
     exit
