@@ -30,7 +30,7 @@ all_guesses = []
 count = new_game.number_of_lives
 
 unguessed_answer_letters_array = []
-unguessed_answer_letters = "__" * letter_array.length
+unguessed_answer_letters = "__ " * letter_array.length
 unguessed_answer_letters_array = unguessed_answer_letters.split
 
 #begin program
@@ -40,7 +40,7 @@ puts "You have #{count} incorrect guesses before bunnies take over!"
 
 until count == 0
   puts "You have already guessed: #{all_guesses}"
-  puts "\nHre's your word so far: #{unguessed_answer_letters_array.join(" ")}"
+  puts "\nHere's your word so far: #{unguessed_answer_letters_array.join(" ")}"
   puts "\nGuess a letter and save your garden!"
   guess = gets.chomp
 
@@ -77,23 +77,68 @@ if guess == letter_array[0]
   count = count -1
   all_guesses << guess
   new_game.incorrect
-  elsif letter_array & all_guesses == letter_array
-    puts letter_array.join
-    puts "\nYou kept the bunnies away! You win!"
-  elsif count == 0
+    if count == 4
+    puts "\nOh no! A bunny is coming to your yard!"
+      require 'colorize'
+      bunny_one =   "\n========".colorize(:cyan)
+      bunny_two =   "\n ()_()  "
+      bunny_thr =   "\n(=o.o=) "
+      bunny_for =   "\n(')_(')*"
+      bunny_fiv =   "\n========".colorize(:cyan)
+      puts bunny_one + bunny_two + bunny_thr + bunny_for + bunny_fiv
+      puts "You have #{count} incorrect guesses before bunnies take over!"
+    elsif count == 3
+    puts "\nOh no! Another bunny is coming to your yard!"
+      require 'colorize'
+      second_bunny_one = "\n=====================".colorize(:cyan)
+      second_bunny_two = "\n   ()__()     ()_()  "
+      second_bunny_thr = "\n  (=o.o=)     (^+^)  "
+      second_bunny_for = "\n  (w)_(w)*  *(')_(') "
+      second_bunny_fiv = "\n=====================".colorize(:cyan)
+      puts second_bunny_one + second_bunny_two + second_bunny_thr + second_bunny_for + second_bunny_fiv
+      puts "You have #{count} incorrect guesses before bunnies take over!"
+    elsif count == 2
+    puts "\nOh no! Another bunny is coming to your yard!"
+      require 'colorize'
+      third_bunny_one = "\n===============================".colorize(:light_blue)
+      third_bunny_two = "\n  (')_(')     ()_()     ()_()  "
+      third_bunny_thr = "\n  ('o+o')     (^+^)     (O.o)  "
+      third_bunny_for = "\n  (@)_(@)*  *(')_(')  *(')(')  "
+      third_bunny_fiv = "\n===============================".colorize(:light_blue)
+      puts third_bunny_one + third_bunny_two + third_bunny_thr + third_bunny_for + third_bunny_fiv
+      puts "You have #{count} incorrect guesses before bunnies take over!"
+    elsif count == 1
+      puts "\nOh no! Another bunny is coming to your yard!"
+      puts "You have #{count} incorrect guesses before bunnies take over!"
+      require 'colorize'
+      fourth_bunny_one = "\n========================================".colorize(:cyan)
+      fourth_bunny_two = "\n  (')_(')     ()_()     ()_()   ()_()   "
+      fourth_bunny_thr = "\n  ('o+o')     (^+^)     (O.o)   (-.-)   "
+      fourth_bunny_for = "\n  (@)_(@)*  *(')_(')  *(')(')  (')(')*  "
+      fourth_bunny_fiv = "\n========================================".colorize(:cyan)
+      puts fourth_bunny_one + fourth_bunny_two + fourth_bunny_thr + fourth_bunny_for + fourth_bunny_fiv
+      puts "You have #{count} incorrect guesses before bunnies take over!"
+    end
+  end
+
+
+  #WIN
+  if letter_array & all_guesses == letter_array
+    puts "Your word was #{letter_array.join.upcase}!"
+    puts "You kept the bunnies away! YOU WIN! :)"
+    exit
+  end
+
+  #LOSE
+  if count == 0
     require 'colorize'
-    puts "\nToo many bunnies! They ate your garden!"
-
-    pbunny_one = "============".colorize(:cyan)
-    bunny_two = "   ()__()   "
-    bunny_thr = "  (=o.o=)   "
-    bunny_for = "  (w)_(w).* "
-    bunny_fiv = "============".colorize(:cyan)
-
-    puts bunny_one + bunny_two + bunny_thr + bunny_for + bunny_fiv
-
+    puts "Too many bunnies! They ate your garden! GAME OVER :(".colorize(:red)
+    fifth_bunny_one = "\n==================================================".colorize(:cyan)
+    fifth_bunny_two = "\n  (')_(')     ()_()     ()_()   ()_()    (')_(')  ".colorize(:red)
+    fifth_bunny_thr = "\n  ('o+o')     (^+^)     (O.o)   (-.-)    (=^+^=)  ".colorize(:red)
+    fifth_bunny_for = "\n  (@)_(@)*  *(')_(')  *(')(')  (')(')*   (%)_(%)**".colorize(:red)
+    fifth_bunny_fiv = "\n==================================================".colorize(:cyan)
+    puts fifth_bunny_one + fifth_bunny_two + fifth_bunny_thr + fifth_bunny_for + fifth_bunny_fiv
     exit
   end
 end
-
-#git
