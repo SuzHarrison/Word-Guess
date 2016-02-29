@@ -8,10 +8,6 @@ class WordGuess
   def correct
     puts "\nYes! You got one! No bunnies in your garden!"
   end
-
-  def incorrect
-    puts "\nOh no! Another bunny is coming to your yard!"
-  end
 end
 
 #program set up
@@ -81,7 +77,6 @@ if guess == letter_array[0]
   elsif guess != letter_array[0] && guess != letter_array[1] && guess != letter_array[2] && guess != letter_array[3] && guess != letter_array[4] && guess != letter_array[5] && guess != letter_array[6]
   count = count -1
   all_guesses << guess
-  new_game.incorrect
     if count == 4
     puts "\nOh no! A bunny is coming to your yard!"
       require 'colorize'
@@ -129,8 +124,23 @@ if guess == letter_array[0]
 
   #WIN
   if letter_array & all_guesses == letter_array
+    require 'colorize'
     puts "Your word was #{letter_array.join.upcase}!"
-    puts "You kept the bunnies away! YOU WIN! :)"
+    puts "You kept the bunnies away! YOU WIN! :)".colorize(:green)
+    flower0 = "\n===============".colorize(:cyan)
+    flower1 = "\n    _ _        ".colorize(:purple)
+    flower2 = "\n  _{ ' }_      ".colorize(:purple)
+    flower3 = "\n { `.!.` }     ".colorize(:purple)
+    flower4 = "\n ',_/Y _,'     ".colorize(:purple)
+    flower5 = "\n   {_,_}       ".colorize(:purple)
+    flower6 = "\n     |         ".colorize(:green)
+    flower7 = "\n   ( |  /)     ".colorize(:green)
+    flower8 = "\n    (| //      ".colorize(:green)
+    flower9 = "\n     |//       ".colorize(:green)
+    flower10 = "\n     |/  //    ".colorize(:green)
+    flower11 = "\n ^^^^^^^^^^^^ ".colorize(:green)
+    flower12 = "\n==============".colorize(:cyan)
+    puts flower0 + flower1 + flower2 + flower3 + flower4 + flower5 + flower6 + flower7 + flower8 + flower9 + flower10 + flower11 + flower12
     exit
   end
 
