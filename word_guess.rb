@@ -95,3 +95,5 @@ if guess == letter_array[0]
     exit
   end
 end
+
+#git
