@@ -62,9 +62,20 @@ until count == 0
   all_guesses << guess
   new_game.incorrect
   elsif letter_array & all_guesses == letter_array
+    puts letter_array.join
     puts "\nYou kept the bunnies away! You win!"
   elsif count == 0
+    require 'colorize'
     puts "\nToo many bunnies! They ate your garden!"
+
+    pbunny_one = "============".colorize(:cyan)
+    bunny_two = "   ()__()   "
+    bunny_thr = "  (=o.o=)   "
+    bunny_for = "  (w)_(w).* "
+    bunny_fiv = "============".colorize(:cyan)
+
+    puts bunny_one + bunny_two + bunny_thr + bunny_for + bunny_fiv
+
     exit
   end
 end
