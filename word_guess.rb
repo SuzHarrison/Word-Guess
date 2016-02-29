@@ -26,8 +26,9 @@ YES
 new_game = WordGuess.new(solve_word: "ruined", number_of_lives: 5)
 letter_array = new_game.solve_word.split(//)
 all_guesses = []
-
 count = new_game.number_of_lives
+
+alphabet_array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 unguessed_answer_letters_array = []
 unguessed_answer_letters = "__ " * letter_array.length
@@ -44,6 +45,10 @@ until count == 0
   puts "\nGuess a letter and save your garden!"
   guess = gets.chomp
 
+  until alphabet_array.include?(guess)
+  puts "Please enter a letter."
+    guess = gets.chomp
+  end
 
 if guess == letter_array[0]
   unguessed_answer_letters_array[0] = letter_array[0]
